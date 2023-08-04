@@ -22,6 +22,8 @@ public class Autobus extends  Automoviles{
         this.numejes = numejes;
         this.longitud = longitud;
     }
+
+    
     
 
     

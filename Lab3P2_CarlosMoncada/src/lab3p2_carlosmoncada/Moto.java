@@ -23,6 +23,7 @@ public class Moto extends Vehiculos{
         this.consumo_combustible = consumo_combustible;
     }
 
+
   
 
     

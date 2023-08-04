@@ -46,29 +46,31 @@ public class Lab3P2_CarlosMoncada {
                     vehiculos.add(agregarAutobus(vehiculos));
                     break;
                 case 4:
-                    if (vehiculos.size()>0) {
-                    modificar(vehiculos);    
-                    }else{
+                    if (vehiculos.size() > 0) {
+                        modificar(vehiculos);
+                    } else {
                         System.out.println("No hay vehiculos");
                     }
-                    
+
                     break;
-                case 5:if (vehiculos.size()>0) {
-                    eliminar(vehiculos);
-                    }else{
+                case 5:
+                    if (vehiculos.size() > 0) {
+                        eliminar(vehiculos);
+                    } else {
                         System.out.println("No hay vehiculos");
                     }
-                break;
-                case 6:if (vehiculos.size()>0) {
-                    listarvehiculos(vehiculos);
-                    }else{
+                    break;
+                case 6:
+                    if (vehiculos.size() > 0) {
+                        listarvehiculos(vehiculos);
+                    } else {
                         System.out.println("No hay vehiculos");
                     }
-                break;
+                    break;
                 case 7:
-                if (vehiculos.size()>0) {
-                    generarboleta(vehiculos);
-                    }else{
+                    if (vehiculos.size() > 0) {
+                        generarboleta(vehiculos);
+                    } else {
                         System.out.println("No hay vehiculos");
                     }
             }
@@ -83,48 +85,11 @@ public class Lab3P2_CarlosMoncada {
         Color color = Color.BLACK;
         String tipocombustible, tipo_Transmision;
         int num_Puertas, num_Asientos;
-        if (vehiculos.size() > 0) {
-            boolean noesta = false;
-            do{
-                placa="";
-              
-                
-                noesta = false;
-                placa += "H";
-                for (int i = 0; i < 7; i++) {
-                    if (i >= 0 && i <= 2) {
-                        char letra = (char) ((Math.random() * (122 - 97)) + 97);
-                        placa += letra;
-                    } else {
-                        placa += (int) ((Math.random() * (9 - 1)) + 1);
-
-                    }
-
-                }
-                for (int i = 0; i < vehiculos.size(); i++) {
-                    if (placa.equalsIgnoreCase(vehiculos.get(i).getPlaca()) == true) {
-                        noesta = true;
-                    }
-
-                }
-            } while (noesta == true) ;
-        } else {
-
-            placa = "";
-
-            placa += "H";
-            for (int i = 0; i < 7; i++) {
-                if (i >= 0 && i <= 2) {
-                    char letra = (char) ((Math.random() * (122 - 97)) + 97);
-                    placa += letra;
-                } else {
-                    placa += (int) ((Math.random() * (9 - 1)) + 1);
-
-                }
-
-            }
-
-        }
+        do {
+            System.out.println("Digite la placa");
+            placa = entrada.nextLine();
+            placa = entrada.nextLine();
+        } while (validarplaca(placa, vehiculos) == false);
 
         System.out.println("Digite año");
         int añoint = entrada.nextInt();
@@ -181,49 +146,11 @@ public class Lab3P2_CarlosMoncada {
         String placa = "", modelo, marca, tipo;
         Date año = new Date();
         Color color;
-        boolean noesta = false;
-        if (vehiculos.size() > 0) {
-            int cont=0;
-           do{
-                placa="";
-                cont++;
-                
-                noesta = false;
-                placa += "B";
-                for (int i = 0; i < 7; i++) {
-                    if (i >= 0 && i <= 2) {
-                        char letra = (char) ((Math.random() * (122 - 97)) + 97);
-                        placa += letra;
-                    } else {
-                        placa += (int) ((Math.random() * (9 - 1)) + 1);
-
-                    }
-
-                }
-                for (int i = 0; i < vehiculos.size(); i++) {
-                    if (placa.equalsIgnoreCase(vehiculos.get(i).getPlaca()) == true) {
-                        noesta = true;
-                    }
-
-                }
-            } while (noesta == true) ;
-        } else {
-
-            placa = "";
-
-            placa += "B";
-            for (int i = 0; i < 7; i++) {
-                if (i >= 0 && i <= 2) {
-                    char letra = (char) ((Math.random() * (122 - 97)) + 97);
-                    placa += letra;
-                } else {
-                    placa += (int) ((Math.random() * (9 - 1)) + 1);
-
-                }
-
-            }
-
-        }
+        do {
+            System.out.println("Digite la placa");
+            placa = entrada.nextLine();
+            placa = entrada.nextLine();
+        } while (validarplaca(placa, vehiculos) == false);
 
         System.out.println("Digite modelo");
         modelo = entrada.nextLine();
@@ -287,47 +214,11 @@ public class Lab3P2_CarlosMoncada {
         Date año = new Date();
         Color color;
         boolean noesta = false;
-        if (vehiculos.size() > 0) {
-            do{
-                placa="";
-                
-                
-                noesta = false;
-                placa += "B";
-                for (int i = 0; i < 7; i++) {
-                    if (i >= 0 && i <= 2) {
-                        char letra = (char) ((Math.random() * (122 - 97)) + 97);
-                        placa += letra;
-                    } else {
-                        placa += (int) ((Math.random() * (9 - 1)) + 1);
-
-                    }
-
-                }
-                for (int i = 0; i < vehiculos.size(); i++) {
-                    if (placa.equalsIgnoreCase(vehiculos.get(i).getPlaca()) == true) {
-                        noesta = true;
-                    }
-
-                }
-            } while (noesta == true) ;
-        } else {
-
-            placa = "";
-
-            placa += "H";
-            for (int i = 0; i < 7; i++) {
-                if (i >= 0 && i <= 2) {
-                    char letra = (char) ((Math.random() * (122 - 97)) + 97);
-                    placa += letra;
-                } else {
-                    placa += (int) ((Math.random() * (9 - 1)) + 1);
-
-                }
-
-            }
-
-        }
+        do {
+            System.out.println("Digite la placa");
+            placa = entrada.nextLine();
+            placa = entrada.nextLine();
+        } while (validarplaca(placa, vehiculos) == false);
 
         System.out.println("Digite modelo");
         modelo = entrada.nextLine();
@@ -536,19 +427,11 @@ public class Lab3P2_CarlosMoncada {
                     ((Automoviles) vehiculos.get(posicion)).setNum_Asientos(numasientos);
                     break;
                 case 5:
-                    placa = "";
-
-                    placa += "H";
-                    for (int i = 0; i < 7; i++) {
-                        if (i >= 0 && i <= 2) {
-                            char letra = (char) ((Math.random() * (122 - 97)) + 97);
-                            placa += letra;
-                        } else {
-                            placa += (int) ((Math.random() * (9 - 1)) + 1);
-
-                        }
-
-                    }
+                    do {
+                        System.out.println("Digite la placa");
+                        placa = entrada.nextLine();
+                        placa = entrada.nextLine();
+                    } while (validarplaca(placa, vehiculos) == false);
 
                     ((Automoviles) vehiculos.get(posicion)).setPlaca(placa);
                     break;
@@ -651,18 +534,11 @@ public class Lab3P2_CarlosMoncada {
                     break;
                 case 4:
                     String placa = "";
-
-                    placa += "B";
-                    for (int i = 0; i < 7; i++) {
-                        if (i >= 0 && i <= 2) {
-                            char letra = (char) ((Math.random() * (122 - 97)) + 97);
-                            placa += letra;
-                        } else {
-                            placa += (int) ((Math.random() * (9 - 1)) + 1);
-
-                        }
-
-                    }
+                    do {
+                        System.out.println("Digite la placa");
+                        placa = entrada.nextLine();
+                        placa = entrada.nextLine();
+                    } while (validarplaca(placa, vehiculos) == false);
 
                     ((Moto) vehiculos.get(posicion)).setPlaca(placa);
                     break;
@@ -816,85 +692,107 @@ public class Lab3P2_CarlosMoncada {
                 case 8:
                     String placa = "";
 
-                    placa += "B";
-                    for (int i = 0; i < 7; i++) {
-                        if (i >= 0 && i <= 2) {
-                            char letra = (char) ((Math.random() * (122 - 97)) + 97);
-                            placa += letra;
-                        } else {
-                            placa += (int) ((Math.random() * (9 - 1)) + 1);
-
-                        }
-
-                    }
+                    do {
+                        System.out.println("Digite la placa");
+                        placa = entrada.nextLine();
+                        placa = entrada.nextLine();
+                    } while (validarplaca(placa, vehiculos) == false);
                     ((Autobus) vehiculos.get(posicion)).setPlaca(placa);
                     break;
-                case 9:System.out.println("Digite el modelo");
-                    String modelo=entrada.nextLine();
-                    modelo=entrada.nextLine();
+                case 9:
+                    System.out.println("Digite el modelo");
+                    String modelo = entrada.nextLine();
+                    modelo = entrada.nextLine();
                     ((Autobus) vehiculos.get(posicion)).setModelo(modelo);
-                case 10:System.out.println("Digite la marca");
-                    String marca=entrada.nextLine();
-                    marca=entrada.nextLine();
+                case 10:
+                    System.out.println("Digite la marca");
+                    String marca = entrada.nextLine();
+                    marca = entrada.nextLine();
                     ((Autobus) vehiculos.get(posicion)).setMarca(marca);
                     break;
-                case 11:System.out.println("Digite el tipo de autobus");
-                    String tipo=entrada.nextLine();
-                    tipo=entrada.nextLine();
+                case 11:
+                    System.out.println("Digite el tipo de autobus");
+                    String tipo = entrada.nextLine();
+                    tipo = entrada.nextLine();
                     ((Autobus) vehiculos.get(posicion)).setTipo(tipo);
                     break;
-                case 12:System.out.println("Digite el año");
-                    int año=entrada.nextInt();
-                    Date añodate= new Date();
+                case 12:
+                    System.out.println("Digite el año");
+                    int año = entrada.nextInt();
+                    Date añodate = new Date();
                     añodate.setYear(año);
                     ((Autobus) vehiculos.get(posicion)).setAño(añodate);
                     break;
-                case 13:Color color=JColorChooser.showDialog(null, "Escoja color", Color.yellow);
-                ((Autobus) vehiculos.get(posicion)).setColor(color);
-                break;
+                case 13:
+                    Color color = JColorChooser.showDialog(null, "Escoja color", Color.yellow);
+                    ((Autobus) vehiculos.get(posicion)).setColor(color);
+                    break;
 
             }
         }
     }
-    
-    public static void eliminar(ArrayList<Vehiculos> vehiculos){
-        Scanner entrada= new Scanner(System.in);
+
+    public static void eliminar(ArrayList<Vehiculos> vehiculos) {
+        Scanner entrada = new Scanner(System.in);
         listarvehiculos(vehiculos);
         System.out.println("Digite la posicion a eliminar");
-        int posicion=entrada.nextInt();
-        while (posicion<0||posicion>vehiculos.size()-1) {            
+        int posicion = entrada.nextInt();
+        while (posicion < 0 || posicion > vehiculos.size() - 1) {
             System.out.println("Valor fuera de rango");
             System.out.println("Digite la posicion a eliminar");
-             posicion=entrada.nextInt();
+            posicion = entrada.nextInt();
         }
-    
+
         vehiculos.remove(posicion);
-    
+
     }
-    
-    public static void generarboleta(ArrayList<Vehiculos> vehiculos){
-         Scanner entrada= new Scanner(System.in);
+
+    public static void generarboleta(ArrayList<Vehiculos> vehiculos) {
+        Scanner entrada = new Scanner(System.in);
         listarvehiculos(vehiculos);
         System.out.println("Digite la posicion a eliminar");
-        int posicion=entrada.nextInt();
-        while (posicion<0||posicion>vehiculos.size()-1) {            
+        int posicion = entrada.nextInt();
+        while (posicion < 0 || posicion > vehiculos.size() - 1) {
             System.out.println("Valor fuera de rango");
             System.out.println("Digite la posicion a eliminar");
-             posicion=entrada.nextInt();
+            posicion = entrada.nextInt();
         }
-        int total=275+250;
+        int total = 275 + 250;
         if (vehiculos.get(posicion) instanceof Automoviles) {
-            total+=1200;
-        }else if (vehiculos.get(posicion) instanceof Moto) {
-            total+=200;
-        }else if (vehiculos.get(posicion) instanceof Autobus) {
-            total+=1000;
+            total += 1200;
+        } else if (vehiculos.get(posicion) instanceof Moto) {
+            total += 200;
+        } else if (vehiculos.get(posicion) instanceof Autobus) {
+            total += 1000;
         }
         System.out.println(vehiculos.get(posicion));
-        System.out.println("Este es el total a pagar "+total);
-    
-    
-    
+        System.out.println("Este es el total a pagar " + total);
+
+    }
+
+    public static boolean validarplaca(String placa, ArrayList<Vehiculos> vehiculos) {
+        int contdigitos = 0;
+        int contcaracteres = 0;
+        for (int i = 0; i < placa.length(); i++) {
+            int codigoasci = (char) placa.charAt(i);
+            if ((codigoasci >= 97 && codigoasci <= 122) || ((codigoasci >= 65 && codigoasci <= 90))) {
+                contcaracteres++;
+            } else if (((codigoasci >= 48 && codigoasci <= 57))) {
+                contdigitos++;
+            }
+        }
+        boolean si = false;
+        for (int i = 0; i < vehiculos.size(); i++) {
+            if (placa.equalsIgnoreCase(vehiculos.get(i).getPlaca()) == true) {
+                si = true;
+            }
+        }
+        if ((placa.length() == 7) && (contdigitos == 4) && (contcaracteres == 3) && (si == true)) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 }

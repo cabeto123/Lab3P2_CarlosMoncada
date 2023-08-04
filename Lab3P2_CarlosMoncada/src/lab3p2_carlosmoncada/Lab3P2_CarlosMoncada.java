@@ -86,7 +86,7 @@ public class Lab3P2_CarlosMoncada {
         String tipocombustible, tipo_Transmision;
         int num_Puertas, num_Asientos;
         do {
-            System.out.println("Digite la placa");
+            System.out.println("Digite la placa en mayuscula");
             placa = entrada.nextLine();
             
         } while (validarplaca(placa, vehiculos,'H') == false);
@@ -147,7 +147,7 @@ public class Lab3P2_CarlosMoncada {
         Date año = new Date();
         Color color;
         do {
-            System.out.println("Digite la placa");
+            System.out.println("Digite la placa en mayuscula");
             placa = entrada.nextLine();
             
         } while (validarplaca(placa, vehiculos,'B') == false);
@@ -214,7 +214,7 @@ public class Lab3P2_CarlosMoncada {
         Color color;
         boolean noesta = false;
         do {
-            System.out.println("Digite la placa");
+            System.out.println("Digite la placa en mayuscula");
             placa = entrada.nextLine();
             
         } while (validarplaca(placa, vehiculos,'H') == false);
@@ -427,7 +427,7 @@ public class Lab3P2_CarlosMoncada {
                     break;
                 case 5:
                     do {
-                        System.out.println("Digite la placa");
+                        System.out.println("Digite la placa en mayuscula");
                         placa = entrada.nextLine();
                         placa = entrada.nextLine();
                         
@@ -535,7 +535,7 @@ public class Lab3P2_CarlosMoncada {
                 case 4:
                     String placa = "";
                     do {
-                        System.out.println("Digite la placa");
+                        System.out.println("Digite la placa en mayuscula");
                         placa = entrada.nextLine();
                         placa = entrada.nextLine();
                     } while (validarplaca(placa, vehiculos,'B') == false);
@@ -693,7 +693,7 @@ public class Lab3P2_CarlosMoncada {
                     String placa = "";
 
                     do {
-                        System.out.println("Digite la placa");
+                        System.out.println("Digite la placa en mayuscula");
                         placa = entrada.nextLine();
                         placa = entrada.nextLine();
                     } while (validarplaca(placa, vehiculos,'H') == false);

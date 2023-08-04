@@ -46,9 +46,26 @@ public class Lab3P2_CarlosMoncada {
                     vehiculos.add(agregarAutobus(vehiculos));
                     break;
                 case 4:
-                    modificar(vehiculos);
+                    if (vehiculos.size()>0) {
+                    modificar(vehiculos);    
+                    }else{
+                        System.out.println("No hay vehiculos");
+                    }
+                    
                     break;
-
+                case 5:if (vehiculos.size()>0) {
+                    eliminar(vehiculos);
+                    }else{
+                        System.out.println("No hay vehiculos");
+                    }
+                break;
+                case 6:if (vehiculos.size()>0) {
+                    listarvehiculos(vehiculos);
+                    }else{
+                        System.out.println("No hay vehiculos");
+                    }
+                break;
+                case 7:
             }
         }
 
@@ -739,29 +756,107 @@ public class Lab3P2_CarlosMoncada {
                     System.out.println("Tipo combustible\n"
                             + "1-Super\n"
                             + "2-Regular");
-                    int combustible=entrada.nextInt();
-                    String n="";
-                    if (combustible==1) {
-                        n="super";
-                    }else{
-                        n="regular";
-                    
+                    int combustible = entrada.nextInt();
+                    String n = "";
+                    if (combustible == 1) {
+                        n = "super";
+                    } else {
+                        n = "regular";
+
                     }
                     ((Autobus) vehiculos.get(opcion)).setTipocombustible(n);
                     break;
-                case 5:System.out.println("Tipo transmision\n"
+                case 5:
+                    System.out.println("Tipo transmision\n"
                             + "1-Manual\n"
                             + "2-Automatica");
-                    int transmision=entrada.nextInt();
-                    String x="";
-                    if (transmision==1) {
-                        x="manual";
-                    }else{
-                        x="automatica";
-                    
+                    int transmision = entrada.nextInt();
+                    String x = "";
+                    if (transmision == 1) {
+                        x = "manual";
+                    } else {
+                        x = "automatica";
+
                     }
+                    ((Autobus) vehiculos.get(opcion)).setTipocombustible(x);
+                    break;
+                case 6:
+                    System.out.println("Digite el numero de puertas");
+                    int numpuertas = entrada.nextInt();
+                    while (numpuertas <= 0) {
+                        System.out.println("Digite el numero de puertas");
+                        numpuertas = entrada.nextInt();
+                    }
+                    ((Autobus) vehiculos.get(opcion)).setNum_Puertas(numpuertas);
+                    break;
+                case 7:
+                    System.out.println("Digite el numero de asientos");
+                    int numasientos = entrada.nextInt();
+                    while (numasientos <= 0) {
+                        System.out.println("Digite el numero de asientos");
+                        numasientos = entrada.nextInt();
+                    }
+                    ((Autobus) vehiculos.get(opcion)).setNum_Asientos(numasientos);
+                    break;
+                case 8:
+                    String placa = "";
+
+                    placa += "B";
+                    for (int i = 0; i < 7; i++) {
+                        if (i >= 0 && i <= 2) {
+                            char letra = (char) ((Math.random() * (122 - 97)) + 97);
+                            placa += letra;
+                        } else {
+                            placa += (int) ((Math.random() * (9 - 1)) + 1);
+
+                        }
+
+                    }
+                    ((Autobus) vehiculos.get(opcion)).setPlaca(placa);
+                    break;
+                case 9:System.out.println("Digite el modelo");
+                    String modelo=entrada.nextLine();
+                    modelo=entrada.nextLine();
+                    ((Autobus) vehiculos.get(opcion)).setModelo(modelo);
+                case 10:System.out.println("Digite la marca");
+                    String marca=entrada.nextLine();
+                    marca=entrada.nextLine();
+                    ((Autobus) vehiculos.get(opcion)).setMarca(marca);
+                    break;
+                case 11:System.out.println("Digite el tipo de autobus");
+                    String tipo=entrada.nextLine();
+                    tipo=entrada.nextLine();
+                    ((Autobus) vehiculos.get(opcion)).setTipo(tipo);
+                    break;
+                case 12:System.out.println("Digite el año");
+                    int año=entrada.nextInt();
+                    Date añodate= new Date();
+                    añodate.setYear(año);
+                    ((Autobus) vehiculos.get(opcion)).setAño(añodate);
+                    break;
+                case 13:Color color=JColorChooser.showDialog(null, "Escoja color", Color.yellow);
+                ((Autobus) vehiculos.get(opcion)).setColor(color);
+                break;
+
             }
         }
     }
+    
+    public static void eliminar(ArrayList<Vehiculos> vehiculos){
+        Scanner entrada= new Scanner(System.in);
+        listarvehiculos(vehiculos);
+        System.out.println("Digite la posicion a eliminar");
+        int posicion=entrada.nextInt();
+        while (posicion<0||posicion>vehiculos.size()-1) {            
+            System.out.println("Valor fuera de rango");
+            System.out.println("Digite la posicion a eliminar");
+             posicion=entrada.nextInt();
+        }
+    
+        vehiculos.remove(posicion);
+    
+    }
+    
+    
 
 }

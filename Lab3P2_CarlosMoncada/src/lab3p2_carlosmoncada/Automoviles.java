@@ -5,6 +5,7 @@
 package lab3p2_carlosmoncada;
 
 import java.awt.Color;
+import java.util.Date;
 
 /**
  *
@@ -15,13 +16,20 @@ public class Automoviles extends Vehiculos {
     String tipocombustible, tipo_Transmision;
     int num_Puertas, num_Asientos;
 
-    public Automoviles(String tipocombustible, String tipo_Transmision, int num_Puertas, int num_Asientos, String placa, String modelo, String marca, String tipo, int año, Color color) {
+    public Automoviles(String tipocombustible, String tipo_Transmision, int num_Puertas, int num_Asientos, String placa, String modelo, String marca, String tipo, Date año, Color color) {
         super(placa, modelo, marca, tipo, año, color);
         this.tipocombustible = tipocombustible;
         this.tipo_Transmision = tipo_Transmision;
         this.num_Puertas = num_Puertas;
         this.num_Asientos = num_Asientos;
     }
+
+   
+   
+
+    
+    
+    
 
     public String getTipocombustible() {
         return tipocombustible;
@@ -53,6 +61,14 @@ public class Automoviles extends Vehiculos {
 
     public void setNum_Asientos(int num_Asientos) {
         this.num_Asientos = num_Asientos;
+    }
+
+    public Date getAño() {
+        return año;
+    }
+
+    public void setAño(Date año) {
+        this.año = año;
     }
 
     @Override
@@ -95,15 +111,6 @@ public class Automoviles extends Vehiculos {
         this.tipo = tipo;
     }
 
-    @Override
-    public int getAño() {
-        return año;
-    }
-
-    @Override
-    public void setAño(int año) {
-        this.año = año;
-    }
 
     @Override
     public Color getColor() {

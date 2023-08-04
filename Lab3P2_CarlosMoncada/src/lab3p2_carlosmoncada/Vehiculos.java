@@ -5,6 +5,7 @@
 package lab3p2_carlosmoncada;
 
 import java.awt.Color;
+import java.util.Date;
 
 /**
  *
@@ -12,10 +13,10 @@ import java.awt.Color;
  */
 public class Vehiculos {
  String placa,modelo,marca,tipo;
- int año;
+ Date año;
  Color color;
 
-    public Vehiculos(String placa, String modelo, String marca, String tipo, int año, Color color) {
+    public Vehiculos(String placa, String modelo, String marca, String tipo, Date año, Color color) {
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
@@ -23,6 +24,13 @@ public class Vehiculos {
         this.año = año;
         this.color = color;
     }
+ 
+
+    
+
+
+    
+    
 
     public String getPlaca() {
         return placa;
@@ -56,13 +64,15 @@ public class Vehiculos {
         this.tipo = tipo;
     }
 
-    public int getAño() {
+    public Date getAño() {
         return año;
     }
 
-    public void setAño(int año) {
+    public void setAño(Date año) {
         this.año = año;
     }
+
+    
 
     public Color getColor() {
         return color;

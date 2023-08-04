@@ -5,6 +5,7 @@
 package lab3p2_carlosmoncada;
 
 import java.awt.Color;
+import java.util.Date;
 
 /**
  *
@@ -15,12 +16,17 @@ public class Moto extends Vehiculos{
     double peso;
     int consumo_combustible;
 
-    public Moto(int velocidad_Max, double peso, int consumo_combustible, String placa, String modelo, String marca, String tipo, int año, Color color) {
+    public Moto(int velocidad_Max, double peso, int consumo_combustible, String placa, String modelo, String marca, String tipo, Date año, Color color) {
         super(placa, modelo, marca, tipo, año, color);
         this.velocidad_Max = velocidad_Max;
         this.peso = peso;
         this.consumo_combustible = consumo_combustible;
     }
+
+  
+
+    
+    
 
     public int getVelocidad_Max() {
         return velocidad_Max;
@@ -62,6 +68,15 @@ public class Moto extends Vehiculos{
         this.modelo = modelo;
     }
 
+    public Date getAño() {
+        return año;
+    }
+
+    public void setAño(Date año) {
+        this.año = año;
+    }
+
+
     public String getMarca() {
         return marca;
     }
@@ -78,13 +93,7 @@ public class Moto extends Vehiculos{
         this.tipo = tipo;
     }
 
-    public int getAño() {
-        return año;
-    }
-
-    public void setAño(int año) {
-        this.año = año;
-    }
+    
 
     public Color getColor() {
         return color;

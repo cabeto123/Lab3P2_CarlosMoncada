@@ -88,7 +88,7 @@ public class Lab3P2_CarlosMoncada {
         do {
             System.out.println("Digite la placa");
             placa = entrada.nextLine();
-            placa = entrada.nextLine();
+            
         } while (validarplaca(placa, vehiculos) == false);
 
         System.out.println("Digite año");
@@ -775,8 +775,10 @@ public class Lab3P2_CarlosMoncada {
         int contcaracteres = 0;
         for (int i = 0; i < placa.length(); i++) {
             int codigoasci = (char) placa.charAt(i);
+            
             if ((codigoasci >= 97 && codigoasci <= 122) || ((codigoasci >= 65 && codigoasci <= 90))) {
                 contcaracteres++;
+                
             } else if (((codigoasci >= 48 && codigoasci <= 57))) {
                 contdigitos++;
             }
@@ -787,7 +789,7 @@ public class Lab3P2_CarlosMoncada {
                 si = true;
             }
         }
-        if ((placa.length() == 7) && (contdigitos == 4) && (contcaracteres == 3) && (si == true)) {
+        if ((placa.length() == 7) && (contdigitos == 4) && (contcaracteres == 3) && (si == false)) {
             return true;
         } else {
             return false;

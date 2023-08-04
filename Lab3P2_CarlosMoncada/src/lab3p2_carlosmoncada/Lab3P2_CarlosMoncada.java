@@ -857,6 +857,29 @@ public class Lab3P2_CarlosMoncada {
     
     }
     
+    public static void generarboleta(ArrayList<Vehiculos> vehiculos){
+         Scanner entrada= new Scanner(System.in);
+        listarvehiculos(vehiculos);
+        System.out.println("Digite la posicion a eliminar");
+        int posicion=entrada.nextInt();
+        while (posicion<0||posicion>vehiculos.size()-1) {            
+            System.out.println("Valor fuera de rango");
+            System.out.println("Digite la posicion a eliminar");
+             posicion=entrada.nextInt();
+        }
+        int total=275+250;
+        if (vehiculos.get(posicion) instanceof Automoviles) {
+            total+=1200;
+        }else if (vehiculos.get(posicion) instanceof Moto) {
+            total+=200;
+        }else if (vehiculos.get(posicion) instanceof Autobus) {
+            total+=1000;
+        }
+        System.out.println(vehiculos.get(posicion));
+        System.out.println("Este es el total a pagar "+total);
     
+    
+    
+    }
 
 }

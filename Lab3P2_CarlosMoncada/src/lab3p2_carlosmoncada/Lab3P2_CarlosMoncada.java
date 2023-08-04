@@ -45,8 +45,9 @@ public class Lab3P2_CarlosMoncada {
                 case 3:
                     vehiculos.add(agregarAutobus(vehiculos));
                     break;
-                case 4:modificar(vehiculos);
-                break;
+                case 4:
+                    modificar(vehiculos);
+                    break;
 
             }
         }
@@ -525,41 +526,242 @@ public class Lab3P2_CarlosMoncada {
                     mode = entrada.nextLine();
                     ((Automoviles) vehiculos.get(posicion)).setModelo(mode);
                     break;
-                case 7:System.out.println("Digite el marca de carro");
-                       String marcacarro=entrada.nextLine();
-                       marcacarro=entrada.nextLine();
-                       
-                       ((Automoviles) vehiculos.get(posicion)).setMarca(marcacarro);
-                       break;
+                case 7:
+                    System.out.println("Digite el marca de carro");
+                    String marcacarro = entrada.nextLine();
+                    marcacarro = entrada.nextLine();
+
+                    ((Automoviles) vehiculos.get(posicion)).setMarca(marcacarro);
+                    break;
                 case 8:
                     System.out.println("Digite el tipo de carro");
-                       String tipoCarro=entrada.nextLine();
-                       tipoCarro=entrada.nextLine();
-                       
-                       ((Automoviles) vehiculos.get(posicion)).setTipo(tipoCarro);
-                       break;
-                case 9:System.out.println("Digite anio");
-                    int anio=entrada.nextInt();
-                    while (anio<=0) {                        
+                    String tipoCarro = entrada.nextLine();
+                    tipoCarro = entrada.nextLine();
+
+                    ((Automoviles) vehiculos.get(posicion)).setTipo(tipoCarro);
+                    break;
+                case 9:
+                    System.out.println("Digite anio");
+                    int anio = entrada.nextInt();
+                    while (anio <= 0) {
                         System.out.println("Anio incorrecto");
                         System.out.println("Digite anio");
-                     anio=entrada.nextInt();
+                        anio = entrada.nextInt();
                     }
-                    Date anñazo=new Date();
+                    Date anñazo = new Date();
                     anñazo.setYear(anio);
                     ((Automoviles) vehiculos.get(posicion)).setAño(anñazo);
                     break;
-                case 10:Color colorx=JColorChooser.showDialog(null, "Escoja color", Color.yellow);
-                ((Automoviles) vehiculos.get(posicion)).setColor(colorx);
-                break;
-                        
+                case 10:
+                    Color colorx = JColorChooser.showDialog(null, "Escoja color", Color.yellow);
+                    ((Automoviles) vehiculos.get(posicion)).setColor(colorx);
+                    break;
 
             }
-        }else if (vehiculos.get(posicion) instanceof Moto) {
-            
-        }
-        
+        } else if (vehiculos.get(posicion) instanceof Moto) {
+            System.out.println("Opciones a modificar\n"
+                    + "1-Velocidad máxima\n"
+                    + "2-peso\n"
+                    + "3-consumo de combustible\n"
+                    + "4-placa\n"
+                    + "5- modelo\n"
+                    + "6- marca\n"
+                    + "7- tipo de carro\n"
+                    + "8- año\n"
+                    + "9-Color");
+            int opcion = entrada.nextInt();
+            while (opcion < 1 || opcion > 9) {
+                System.out.println("Posicion fuera de rango");
+                System.out.println("Opciones a modificar\n"
+                        + "1-Velocidad máxima\n"
+                        + "2-peso\n"
+                        + "3-consumo de combustible\n"
+                        + "4-placa\n"
+                        + "5- modelo\n"
+                        + "6- marca\n"
+                        + "7- tipo de carro\n"
+                        + "8- año\n"
+                        + "9-Color");
+                opcion = entrada.nextInt();
+            }
+            switch (opcion) {
+                case 1:
+                    System.out.println("Digite la velocidad maxima");
+                    int velocidadmax = entrada.nextInt();
+                    while (velocidadmax <= 0) {
+                        System.out.println("Velocidad incorrecta");
+                        System.out.println("Digite la velocidad maxima");
+                        velocidadmax = entrada.nextInt();
+                    }
+                    ((Moto) vehiculos.get(opcion)).setVelocidad_Max(velocidadmax);
 
+                    break;
+                case 2:
+                    System.out.println("Digite el peso");
+                    double peso = entrada.nextDouble();
+                    while (peso <= 0) {
+                        System.out.println("Peso incorrecto");
+                        System.out.println("Digite el peso");
+                        peso = entrada.nextDouble();
+                    }
+                    ((Moto) vehiculos.get(opcion)).setPeso(peso);
+                    break;
+                case 3:
+                    System.out.println("Digite el consumo del combustible");
+                    int consumocombustible = entrada.nextInt();
+                    while (consumocombustible <= 0) {
+                        System.out.println("Consumo incorrecto");
+                        System.out.println("Digite el consumo del combustible");
+                        consumocombustible = entrada.nextInt();
+
+                    }
+                    ((Moto) vehiculos.get(opcion)).setConsumo_combustible(consumocombustible);
+                    break;
+                case 4:
+                    String placa = "";
+
+                    placa += "B";
+                    for (int i = 0; i < 7; i++) {
+                        if (i >= 0 && i <= 2) {
+                            char letra = (char) ((Math.random() * (122 - 97)) + 97);
+                            placa += letra;
+                        } else {
+                            placa += (int) ((Math.random() * (9 - 1)) + 1);
+
+                        }
+
+                    }
+
+                    ((Moto) vehiculos.get(posicion)).setPlaca(placa);
+                    break;
+                case 5:
+                    System.out.println("Digit el modelo de la moto");
+                    String modelo = entrada.nextLine();
+                    modelo = entrada.nextLine();
+                    ((Moto) vehiculos.get(posicion)).setModelo(modelo);
+                    break;
+                case 6:
+                    System.out.println("Digit la marca de la moto");
+                    String marca = entrada.nextLine();
+                    marca = entrada.nextLine();
+                    ((Moto) vehiculos.get(posicion)).setMarca(marca);
+                    break;
+                case 7:
+                    System.out.println("Digite el tipo de carro");
+                    String tipo = entrada.nextLine();
+                    tipo = entrada.nextLine();
+                    ((Moto) vehiculos.get(posicion)).setTipo(tipo);
+                    break;
+                case 8:
+                    Date año = new Date();
+                    System.out.println("Digite el año");
+                    int añoint = entrada.nextInt();
+                    while (añoint <= 0) {
+                        System.out.println("Anio incorrecto");
+                        System.out.println("Digite el año");
+                        añoint = entrada.nextInt();
+                    }
+                    año.setYear(añoint);
+                    ((Moto) vehiculos.get(posicion)).setAño(año);
+                    break;
+                case 9:
+                    Color color = JColorChooser.showDialog(null, "Escoja color", Color.yellow);
+                    ((Moto) vehiculos.get(posicion)).setColor(color);
+                    break;
+
+            }
+
+        } else if (vehiculos.get(posicion) instanceof Autobus) {
+            System.out.println("Opcion a modificar \n"
+                    + "1-capacidad de Pasajeros \n"
+                    + "2-Numero de ejes\n"
+                    + "3-longitud\n"
+                    + "4-Tipocombustible\n"
+                    + "5-Tipo de transmisión\n"
+                    + "6- Numero de puertas\n"
+                    + "7-Numero de asientos\n"
+                    + "8-placa\n"
+                    + "9-modelo\n"
+                    + "10-marca\n"
+                    + "11-tipo\n"
+                    + "12-año\n"
+                    + "13-Color ");
+            int opcion = entrada.nextInt();
+            while (opcion < 1 || opcion > 13) {
+                System.out.println("Opcion fuera de rango");
+                System.out.println("Opcion a modificar \n"
+                        + "1-capacidad de Pasajeros \n"
+                        + "2-Numero de ejes\n"
+                        + "3-longitud\n"
+                        + "4-Tipocombustible\n"
+                        + "5-Tipo de transmisión\n"
+                        + "6- Numero de puertas\n"
+                        + "7-Numero de asientos\n"
+                        + "8-placa\n"
+                        + "9-modelo\n"
+                        + "10-marca\n"
+                        + "11-tipo\n"
+                        + "12-año\n"
+                        + "13-Color ");
+                opcion = entrada.nextInt();
+            }
+            switch (opcion) {
+                case 1:
+                    System.out.println("Digite la cantidad de pasajeros");
+                    int cantpasajeros = entrada.nextInt();
+                    while (cantpasajeros <= 0) {
+                        System.out.println("Valor incorrecto");
+                        System.out.println("Digite la cantidad de pasajeros");
+                        cantpasajeros = entrada.nextInt();
+                    }
+                    ((Autobus) vehiculos.get(opcion)).setCapacidad_Pasajeros(cantpasajeros);
+                    break;
+                case 2:
+                    System.out.println("Digite la cantidad de ejes");
+                    int numejes = entrada.nextInt();
+                    while (numejes <= 0) {
+                        System.out.println("Valor incorrecto");
+                        System.out.println("Digite la cantidad de ejes");
+                        numejes = entrada.nextInt();
+                    }
+                    ((Autobus) vehiculos.get(opcion)).setNumejes(numejes);
+                    break;
+                case 3:
+                    System.out.println("Digite la longitud");
+                    int longitud = entrada.nextInt();
+                    while (longitud <= 0) {
+                        System.out.println("Digite la longitud");
+                        longitud = entrada.nextInt();
+                    }
+                    ((Autobus) vehiculos.get(opcion)).setLongitud(longitud);
+                    break;
+                case 4:
+                    System.out.println("Tipo combustible\n"
+                            + "1-Super\n"
+                            + "2-Regular");
+                    int combustible=entrada.nextInt();
+                    String n="";
+                    if (combustible==1) {
+                        n="super";
+                    }else{
+                        n="regular";
+                    
+                    }
+                    ((Autobus) vehiculos.get(opcion)).setTipocombustible(n);
+                    break;
+                case 5:System.out.println("Tipo transmision\n"
+                            + "1-Manual\n"
+                            + "2-Automatica");
+                    int transmision=entrada.nextInt();
+                    String x="";
+                    if (transmision==1) {
+                        x="manual";
+                    }else{
+                        x="automatica";
+                    
+                    }
+            }
+        }
     }
 
 }

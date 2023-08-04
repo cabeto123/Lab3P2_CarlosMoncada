@@ -106,7 +106,9 @@ public class Moto extends Vehiculos{
 
     @Override
     public String toString() {
-        return super.toString() + "\nVelocidad Maxima=" + velocidad_Max + "\nPeso=" + peso + "\nconsumo de combustible=" + consumo_combustible ;
+       return super.toString() + "\nVelocidad Maxima=" + velocidad_Max + "\nPeso=" + peso + "\nconsumo de combustible=" + consumo_combustible ;
     }
+
+    
     
 }

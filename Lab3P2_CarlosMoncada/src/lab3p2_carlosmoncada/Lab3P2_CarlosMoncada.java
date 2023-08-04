@@ -89,7 +89,7 @@ public class Lab3P2_CarlosMoncada {
             System.out.println("Digite la placa");
             placa = entrada.nextLine();
             
-        } while (validarplaca(placa, vehiculos) == false);
+        } while (validarplaca(placa, vehiculos,'H') == false);
 
         System.out.println("Digite año");
         int añoint = entrada.nextInt();
@@ -149,15 +149,14 @@ public class Lab3P2_CarlosMoncada {
         do {
             System.out.println("Digite la placa");
             placa = entrada.nextLine();
-            placa = entrada.nextLine();
-        } while (validarplaca(placa, vehiculos) == false);
+            
+        } while (validarplaca(placa, vehiculos,'B') == false);
 
         System.out.println("Digite modelo");
         modelo = entrada.nextLine();
         System.out.println("Digite la marca");
         marca = entrada.nextLine();
-        System.out.println("Digite que tipo es su carro");
-        tipo = entrada.nextLine();
+        
         System.out.println("Digite año");
         int añoint = entrada.nextInt();
         while (añoint <= 0) {
@@ -217,8 +216,8 @@ public class Lab3P2_CarlosMoncada {
         do {
             System.out.println("Digite la placa");
             placa = entrada.nextLine();
-            placa = entrada.nextLine();
-        } while (validarplaca(placa, vehiculos) == false);
+            
+        } while (validarplaca(placa, vehiculos,'H') == false);
 
         System.out.println("Digite modelo");
         modelo = entrada.nextLine();
@@ -431,7 +430,8 @@ public class Lab3P2_CarlosMoncada {
                         System.out.println("Digite la placa");
                         placa = entrada.nextLine();
                         placa = entrada.nextLine();
-                    } while (validarplaca(placa, vehiculos) == false);
+                        
+                    } while (validarplaca(placa, vehiculos,'H') == false);
 
                     ((Automoviles) vehiculos.get(posicion)).setPlaca(placa);
                     break;
@@ -538,7 +538,7 @@ public class Lab3P2_CarlosMoncada {
                         System.out.println("Digite la placa");
                         placa = entrada.nextLine();
                         placa = entrada.nextLine();
-                    } while (validarplaca(placa, vehiculos) == false);
+                    } while (validarplaca(placa, vehiculos,'B') == false);
 
                     ((Moto) vehiculos.get(posicion)).setPlaca(placa);
                     break;
@@ -696,7 +696,7 @@ public class Lab3P2_CarlosMoncada {
                         System.out.println("Digite la placa");
                         placa = entrada.nextLine();
                         placa = entrada.nextLine();
-                    } while (validarplaca(placa, vehiculos) == false);
+                    } while (validarplaca(placa, vehiculos,'H') == false);
                     ((Autobus) vehiculos.get(posicion)).setPlaca(placa);
                     break;
                 case 9:
@@ -770,7 +770,7 @@ public class Lab3P2_CarlosMoncada {
 
     }
 
-    public static boolean validarplaca(String placa, ArrayList<Vehiculos> vehiculos) {
+    public static boolean validarplaca(String placa, ArrayList<Vehiculos> vehiculos,char l) {
         int contdigitos = 0;
         int contcaracteres = 0;
         for (int i = 0; i < placa.length(); i++) {
@@ -789,9 +789,10 @@ public class Lab3P2_CarlosMoncada {
                 si = true;
             }
         }
-        if ((placa.length() == 7) && (contdigitos == 4) && (contcaracteres == 3) && (si == false)) {
+        if ((placa.length() == 7) && (contdigitos == 4) && (contcaracteres == 3) && (si == false)&&(placa.charAt(0)==l)) {
             return true;
         } else {
+            System.out.println("Placa invalida");
             return false;
         }
 

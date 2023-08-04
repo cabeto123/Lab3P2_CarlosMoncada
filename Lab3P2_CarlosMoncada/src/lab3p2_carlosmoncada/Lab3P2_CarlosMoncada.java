@@ -402,18 +402,21 @@ public class Lab3P2_CarlosMoncada {
         for (int i = 0; i < vehiculos.size(); i++) {
             if (vehiculos.get(i) instanceof Automoviles) {
                 System.out.println("Posicion" + i + "\n" + vehiculos.get(i));
+                System.out.println("");
             }
         }
         System.out.println("");
         for (int i = 0; i < vehiculos.size(); i++) {
             if (vehiculos.get(i) instanceof Moto) {
                 System.out.println("Posicion" + i + "\n" + vehiculos.get(i));
+                System.out.println("");
             }
         }
         System.out.println("");
         for (int i = 0; i < vehiculos.size(); i++) {
             if (vehiculos.get(i) instanceof Autobus) {
                 System.out.println("Posicion" + i + "\n" + vehiculos.get(i));
+                System.out.println("");
             }
         }
 

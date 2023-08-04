@@ -84,7 +84,7 @@ public class Vehiculos {
 
     @Override
     public String toString() {
-        return  "Placa =" + placa + "modelo =" + modelo + "marca =" + marca + "tipo =" + tipo + " anio =" + año.getYear() ;
+        return  "Placa =" + placa + "\nmodelo =" + modelo + "\nmarca =" + marca + "\ntipo =" + tipo + "\nanio =" + año.getYear() ;
     }
     
  

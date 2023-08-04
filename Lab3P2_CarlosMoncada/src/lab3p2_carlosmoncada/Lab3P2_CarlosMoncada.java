@@ -66,6 +66,11 @@ public class Lab3P2_CarlosMoncada {
                     }
                 break;
                 case 7:
+                if (vehiculos.size()>0) {
+                    generarboleta(vehiculos);
+                    }else{
+                        System.out.println("No hay vehiculos");
+                    }
             }
         }
 
@@ -80,8 +85,10 @@ public class Lab3P2_CarlosMoncada {
         int num_Puertas, num_Asientos;
         if (vehiculos.size() > 0) {
             boolean noesta = false;
-            while (noesta == true) {
-                placa = "";
+            do{
+                placa="";
+              
+                
                 noesta = false;
                 placa += "H";
                 for (int i = 0; i < 7; i++) {
@@ -100,7 +107,7 @@ public class Lab3P2_CarlosMoncada {
                     }
 
                 }
-            }
+            } while (noesta == true) ;
         } else {
 
             placa = "";
@@ -176,9 +183,11 @@ public class Lab3P2_CarlosMoncada {
         Color color;
         boolean noesta = false;
         if (vehiculos.size() > 0) {
-            while (noesta == true) {
-
-                placa = "";
+            int cont=0;
+           do{
+                placa="";
+                cont++;
+                
                 noesta = false;
                 placa += "B";
                 for (int i = 0; i < 7; i++) {
@@ -197,7 +206,7 @@ public class Lab3P2_CarlosMoncada {
                     }
 
                 }
-            }
+            } while (noesta == true) ;
         } else {
 
             placa = "";
@@ -279,11 +288,12 @@ public class Lab3P2_CarlosMoncada {
         Color color;
         boolean noesta = false;
         if (vehiculos.size() > 0) {
-            while (noesta == true) {
-
-                placa = "";
+            do{
+                placa="";
+                
+                
                 noesta = false;
-                placa += "H";
+                placa += "B";
                 for (int i = 0; i < 7; i++) {
                     if (i >= 0 && i <= 2) {
                         char letra = (char) ((Math.random() * (122 - 97)) + 97);
@@ -300,7 +310,7 @@ public class Lab3P2_CarlosMoncada {
                     }
 
                 }
-            }
+            } while (noesta == true) ;
         } else {
 
             placa = "";
@@ -388,20 +398,22 @@ public class Lab3P2_CarlosMoncada {
     }
 
     public static void listarvehiculos(ArrayList<Vehiculos> vehiculos) {
-
+        System.out.println("");
         for (int i = 0; i < vehiculos.size(); i++) {
             if (vehiculos.get(i) instanceof Automoviles) {
-                System.out.println("Posicion" + i + " " + vehiculos.get(i));
+                System.out.println("Posicion" + i + "\n" + vehiculos.get(i));
             }
         }
+        System.out.println("");
         for (int i = 0; i < vehiculos.size(); i++) {
             if (vehiculos.get(i) instanceof Moto) {
-                System.out.println("Posicion" + i + " " + vehiculos.get(i));
+                System.out.println("Posicion" + i + "\n" + vehiculos.get(i));
             }
         }
+        System.out.println("");
         for (int i = 0; i < vehiculos.size(); i++) {
             if (vehiculos.get(i) instanceof Autobus) {
-                System.out.println("Posicion" + i + " " + vehiculos.get(i));
+                System.out.println("Posicion" + i + "\n" + vehiculos.get(i));
             }
         }
 
@@ -610,7 +622,7 @@ public class Lab3P2_CarlosMoncada {
                         System.out.println("Digite la velocidad maxima");
                         velocidadmax = entrada.nextInt();
                     }
-                    ((Moto) vehiculos.get(opcion)).setVelocidad_Max(velocidadmax);
+                    ((Moto) vehiculos.get(posicion)).setVelocidad_Max(velocidadmax);
 
                     break;
                 case 2:
@@ -621,7 +633,7 @@ public class Lab3P2_CarlosMoncada {
                         System.out.println("Digite el peso");
                         peso = entrada.nextDouble();
                     }
-                    ((Moto) vehiculos.get(opcion)).setPeso(peso);
+                    ((Moto) vehiculos.get(posicion)).setPeso(peso);
                     break;
                 case 3:
                     System.out.println("Digite el consumo del combustible");
@@ -632,7 +644,7 @@ public class Lab3P2_CarlosMoncada {
                         consumocombustible = entrada.nextInt();
 
                     }
-                    ((Moto) vehiculos.get(opcion)).setConsumo_combustible(consumocombustible);
+                    ((Moto) vehiculos.get(posicion)).setConsumo_combustible(consumocombustible);
                     break;
                 case 4:
                     String placa = "";
@@ -731,7 +743,7 @@ public class Lab3P2_CarlosMoncada {
                         System.out.println("Digite la cantidad de pasajeros");
                         cantpasajeros = entrada.nextInt();
                     }
-                    ((Autobus) vehiculos.get(opcion)).setCapacidad_Pasajeros(cantpasajeros);
+                    ((Autobus) vehiculos.get(posicion)).setCapacidad_Pasajeros(cantpasajeros);
                     break;
                 case 2:
                     System.out.println("Digite la cantidad de ejes");
@@ -741,7 +753,7 @@ public class Lab3P2_CarlosMoncada {
                         System.out.println("Digite la cantidad de ejes");
                         numejes = entrada.nextInt();
                     }
-                    ((Autobus) vehiculos.get(opcion)).setNumejes(numejes);
+                    ((Autobus) vehiculos.get(posicion)).setNumejes(numejes);
                     break;
                 case 3:
                     System.out.println("Digite la longitud");
@@ -750,7 +762,7 @@ public class Lab3P2_CarlosMoncada {
                         System.out.println("Digite la longitud");
                         longitud = entrada.nextInt();
                     }
-                    ((Autobus) vehiculos.get(opcion)).setLongitud(longitud);
+                    ((Autobus) vehiculos.get(posicion)).setLongitud(longitud);
                     break;
                 case 4:
                     System.out.println("Tipo combustible\n"
@@ -764,7 +776,7 @@ public class Lab3P2_CarlosMoncada {
                         n = "regular";
 
                     }
-                    ((Autobus) vehiculos.get(opcion)).setTipocombustible(n);
+                    ((Autobus) vehiculos.get(posicion)).setTipocombustible(n);
                     break;
                 case 5:
                     System.out.println("Tipo transmision\n"
@@ -778,7 +790,7 @@ public class Lab3P2_CarlosMoncada {
                         x = "automatica";
 
                     }
-                    ((Autobus) vehiculos.get(opcion)).setTipocombustible(x);
+                    ((Autobus) vehiculos.get(posicion)).setTipocombustible(x);
                     break;
                 case 6:
                     System.out.println("Digite el numero de puertas");
@@ -787,7 +799,7 @@ public class Lab3P2_CarlosMoncada {
                         System.out.println("Digite el numero de puertas");
                         numpuertas = entrada.nextInt();
                     }
-                    ((Autobus) vehiculos.get(opcion)).setNum_Puertas(numpuertas);
+                    ((Autobus) vehiculos.get(posicion)).setNum_Puertas(numpuertas);
                     break;
                 case 7:
                     System.out.println("Digite el numero de asientos");
@@ -796,7 +808,7 @@ public class Lab3P2_CarlosMoncada {
                         System.out.println("Digite el numero de asientos");
                         numasientos = entrada.nextInt();
                     }
-                    ((Autobus) vehiculos.get(opcion)).setNum_Asientos(numasientos);
+                    ((Autobus) vehiculos.get(posicion)).setNum_Asientos(numasientos);
                     break;
                 case 8:
                     String placa = "";
@@ -812,30 +824,30 @@ public class Lab3P2_CarlosMoncada {
                         }
 
                     }
-                    ((Autobus) vehiculos.get(opcion)).setPlaca(placa);
+                    ((Autobus) vehiculos.get(posicion)).setPlaca(placa);
                     break;
                 case 9:System.out.println("Digite el modelo");
                     String modelo=entrada.nextLine();
                     modelo=entrada.nextLine();
-                    ((Autobus) vehiculos.get(opcion)).setModelo(modelo);
+                    ((Autobus) vehiculos.get(posicion)).setModelo(modelo);
                 case 10:System.out.println("Digite la marca");
                     String marca=entrada.nextLine();
                     marca=entrada.nextLine();
-                    ((Autobus) vehiculos.get(opcion)).setMarca(marca);
+                    ((Autobus) vehiculos.get(posicion)).setMarca(marca);
                     break;
                 case 11:System.out.println("Digite el tipo de autobus");
                     String tipo=entrada.nextLine();
                     tipo=entrada.nextLine();
-                    ((Autobus) vehiculos.get(opcion)).setTipo(tipo);
+                    ((Autobus) vehiculos.get(posicion)).setTipo(tipo);
                     break;
                 case 12:System.out.println("Digite el año");
                     int año=entrada.nextInt();
                     Date añodate= new Date();
                     añodate.setYear(año);
-                    ((Autobus) vehiculos.get(opcion)).setAño(añodate);
+                    ((Autobus) vehiculos.get(posicion)).setAño(añodate);
                     break;
                 case 13:Color color=JColorChooser.showDialog(null, "Escoja color", Color.yellow);
-                ((Autobus) vehiculos.get(opcion)).setColor(color);
+                ((Autobus) vehiculos.get(posicion)).setColor(color);
                 break;
 
             }
